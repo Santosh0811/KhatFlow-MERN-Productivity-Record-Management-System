@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 12s ease-in-out infinite;
+}
+
+@layer base {
+  body {
+    @apply font-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.25s ease-out;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 3D Drawer helpers */
+.drawer-3d {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.drawer-inner {
+  transform: translateZ(40px);
+}
+
+/* Subtle glow */
+.drawer-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(120deg,
+      rgba(59, 130, 246, 0.35),
+      rgba(168, 85, 247, 0.25),
+      rgba(59, 130, 246, 0.35));
+  filter: blur(24px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Remove arrows in Chrome, Edge, Safari */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-lg;
+}
+
+.input-glass-2 {
+  @apply bg-slate-200 border border-white/10 rounded-xl px-3 py-2 text-slate-950 placeholder-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500;
+}
+
+.input-glass-1 {
+  @apply bg-slate-600 border border-black/10 rounded-xl px-3 py-2 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-900;
+}
+
+.nav-2 {
+  display: none;
+}
+
+select {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: none !important;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .nav-1 {
+    display: none;
+  }
+
+  .nav-2 {
+    display: flex;
+  }
+
+  .form-1 {
+    flex-direction: column;
+  }
+
+  .form-2 {
+    width: auto;
+  }
+
+  .form-3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 7px;
+  }
+
+  .preview-1 {
+    margin: 1rem;
+  }
+
+  .preview-2 {
+    padding: 1.25rem;
+  }
+
+  .account-1 {
+    flex-direction: column;
+  }
+
+  .account-2 {
+    margin-top: 10px;
+  }
+
+  /* Remove dropdown arrow in all browsers */
+  select {
+    -webkit-appearance: none;
+    /* Chrome, Safari */
+    -moz-appearance: none;
+    /* Firefox */
+    appearance: none;
+    background-image: none;
+    padding-inline: calc(var(--spacing) * 1);
+  }
+
+  .gn-1 {
+    min-width: 700px;
+    scroll-behavior: none;
+    scrollbar-width: none;
+    scrollbar-3dlight-color: antiquewhite;
+  }
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+} */
